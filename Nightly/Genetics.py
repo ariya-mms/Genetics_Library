@@ -1,7 +1,6 @@
 import numpy as np
 np.random.seed(75)
 
-# new commit in 19 Azar
 class ChromosomeType:
     BINARY = 'binary'  # its wrong ?!
     # discrete or permutation
