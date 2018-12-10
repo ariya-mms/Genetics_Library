@@ -1,8 +1,7 @@
 import numpy as np
-
 np.random.seed(75)
 
-
+# new commit in 19 Azar
 class ChromosomeType:
     BINARY = 'binary'  # its wrong ?!
     # discrete or permutation
@@ -37,7 +36,10 @@ class Chromosome:
             if ctype == ChromosomeType.BINARY:
                 self.genes = np.array(np.random.rand(length) > 0.5, dtype=int)
             else:
-                self.genes = self.get_shuffled_array(length)
+                # TODO create random chromes by discrete or permutation style
+
+                pass
+                # self.genes = self.get_shuffled_array(length)
         elif np.array(genes).shape == (1,):
             # chrom types ??
             self.genes = genes
