@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7426e0f8-caf0-4cd7-8874-9aa5ac856817" name="Default Changelist" comment="">
+    <list default="true" id="7426e0f8-caf0-4cd7-8874-9aa5ac856817" name="Default Changelist" comment="add roulette wheel selection method and comment seed at line 2 to ignore creating same results.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Nightly/Genetics.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nightly/Genetics.py" afterDir="false" />
     </list>
@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Nightly/Genetics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+            <state relative-caret-position="351">
+              <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
             </state>
           </provider>
         </entry>
@@ -171,7 +171,7 @@
       <workItem from="1544295380113" duration="1224000" />
       <workItem from="1544388872073" duration="1114000" />
       <workItem from="1544452386550" duration="4221000" />
-      <workItem from="1544538533358" duration="10537000" />
+      <workItem from="1544538533358" duration="11134000" />
     </task>
     <task id="LOCAL-00001" summary="just for testing push and pull">
       <created>1544456048773</created>
@@ -194,11 +194,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544553313936</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add roulette wheel selection method and comment seed at line 2 to ignore creating same results.">
+      <created>1544554657999</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1544554657999</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17096000" />
+    <option name="totallyTimeSpent" value="17693000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -210,11 +217,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19662163" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49855492" visible="true" weight="0.19662163" />
+      <window_info id="Structure" order="1" sideWeight="0.5014451" side_tool="true" weight="0.19662163" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -251,10 +258,37 @@
       </list>
     </option>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="just for testing push and pull" />
     <MESSAGE value="add some selection methods and add section to test app working" />
-    <option name="LAST_COMMIT_MESSAGE" value="add some selection methods and add section to test app working" />
+    <MESSAGE value="add roulette wheel selection method and comment seed at line 2 to ignore creating same results." />
+    <option name="LAST_COMMIT_MESSAGE" value="add roulette wheel selection method and comment seed at line 2 to ignore creating same results." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assignment 1.ipynb">
@@ -290,8 +324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Nightly/Genetics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+        <state relative-caret-position="351">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
         </state>
       </provider>
     </entry>
