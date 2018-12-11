@@ -1,6 +1,6 @@
 import numpy as np
 
-np.random.seed(75)
+# np.random.seed(75)
 
 
 class ChromosomeType:
@@ -151,6 +151,19 @@ def stochastic_universal_sampling(population=None):
     return selected_individual
 
 
+def roulette_selection(population=None):
+    i = 0
+    fitness_arr = np.array(list(map(lambda c: c.fitness, population)))
+    sum_of_fitness = np.sum(fitness_arr)
+    sel_prob = fitness_arr / sum_of_fitness
+    sum_prob = sel_prob[i]
+    pointer = np.random.rand()
+    while sum_prob < pointer:
+        i += 1
+        sum_prob += sel_prob[i]
+    return population[i]
+
+
 # *************************************************************
 # ***********************test app******************************
 # **************************************************************
@@ -177,14 +190,14 @@ def calculate_population_fitness(population=None, best_fitness=float('-inf'), be
 
 
 def test_selections():
-    current_population = population_init_random(100, 8, ctype=ChromosomeType.SIMPLE_MATRIX)
+    current_population = population_init_random(20, 6, ctype=ChromosomeType.SIMPLE_MATRIX)
     # print(np.array([c.genes for c in current_population]))
     best_fitness, best_individual = calculate_population_fitness(current_population, -1)
     print("best :> ", best_individual.genes, " f :> ", best_fitness)
     for i in range(int(len(current_population) / 5)):
         # Selection
-        parent1 = stochastic_universal_sampling(current_population)
-        print("gen "+str(i)+". ", parent1.genes, " f :> ", parent1.fitness)
+        parent1 = roulette_selection(current_population)
+        print("gen " + str(i) + ". ", parent1.genes, " f :> ", parent1.fitness)
 
 
 test_selections()

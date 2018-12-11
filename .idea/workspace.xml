@@ -11,13 +11,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Genetics_Library$Genetics.coverage" NAME="Genetics Coverage Results" MODIFIED="1544554513385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Nightly" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Nightly/Genetics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+            <state relative-caret-position="435">
+              <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -25,27 +28,51 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://E:/setup/Personal ProjectS/-computer engineering-/Term-5/BCI/HW and Projects/1/n-Queen Problem With GA/Final Version/BCI_Project_1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="141" selection-start-line="141" selection-end-line="148" selection-end-column="26" />
+            <state relative-caret-position="5126">
+              <caret line="324" column="28" lean-forward="true" selection-start-line="324" selection-start-column="28" selection-end-line="324" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://E:/setup/Personal ProjectS/-computer engineering-/Term-5/BCI/Git/Global_Version_Of_Genetic-Git/Computational-Intelligence-Tutorials/Week 4 - Genetic Algorithm(part 3)/genetic_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="63" column="25" lean-forward="true" selection-start-line="51" selection-end-line="63" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>###</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="poorya yousefi &lt;poorya3976@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="E:/setup/Personal ProjectS/-computer engineering-/Term-5/BCI/HW and Projects/1/n-Queen Problem With GA/Final Version/BCI_Project_1.py" />
+        <option value="$PROJECT_DIR$/Assignment 1.ipynb" />
         <option value="$PROJECT_DIR$/Nightly/Genetics.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-164" />
-    <option name="y" value="-10" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-15" />
+    <option name="y" value="-9" />
     <option name="width" value="1940" />
     <option name="height" value="1060" />
   </component>
@@ -55,7 +82,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Genetics_Library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Genetics_Library" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Genetics_Library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Genetics_Library" type="462c0819:PsiDirectoryNode" />
+              <item name="Nightly" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -79,6 +121,28 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration name="Genetics" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Genetics_Library" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Nightly" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Nightly/Genetics.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -88,6 +152,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Genetics" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -102,7 +171,7 @@
       <workItem from="1544295380113" duration="1224000" />
       <workItem from="1544388872073" duration="1114000" />
       <workItem from="1544452386550" duration="4221000" />
-      <workItem from="1544538533358" duration="2393000" />
+      <workItem from="1544538533358" duration="10537000" />
     </task>
     <task id="LOCAL-00001" summary="just for testing push and pull">
       <created>1544456048773</created>
@@ -118,11 +187,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544456144216</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add some selection methods and add section to test app working">
+      <created>1544553313936</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544553313936</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8952000" />
+    <option name="totallyTimeSpent" value="17096000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -137,20 +213,20 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19662163" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19662163" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.57947975" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32947975" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32803467" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.7369942" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32803467" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32658958" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -177,20 +253,45 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="just for testing push and pull" />
-    <option name="LAST_COMMIT_MESSAGE" value="just for testing push and pull" />
+    <MESSAGE value="add some selection methods and add section to test app working" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some selection methods and add section to test app working" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assignment 1.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/setup/Personal ProjectS/-computer engineering-/Term-5/BCI/Git/Global_Version_Of_Genetic-Git/Computational-Intelligence-Tutorials/Week 5 - Ant Colony Optimization/Ant Colony.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/setup/Personal ProjectS/-computer engineering-/Term-5/BCI/Git/Global_Version_Of_Genetic-Git/Computational-Intelligence-Tutorials/Week 4 - Genetic Algorithm(part 3)/genetic_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="63" column="25" lean-forward="true" selection-start-line="51" selection-end-line="63" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://E:/setup/Personal ProjectS/-computer engineering-/Term-5/BCI/HW and Projects/1/n-Queen Problem With GA/Final Version/BCI_Project_1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="141" selection-start-line="141" selection-end-line="148" selection-end-column="26" />
+        <state relative-caret-position="5126">
+          <caret line="324" column="28" lean-forward="true" selection-start-line="324" selection-start-column="28" selection-end-line="324" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Nightly/Genetics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+        <state relative-caret-position="435">
+          <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
         </state>
       </provider>
     </entry>
