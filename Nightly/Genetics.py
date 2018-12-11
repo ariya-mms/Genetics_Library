@@ -1,5 +1,7 @@
 import numpy as np
+
 np.random.seed(75)
+
 
 class ChromosomeType:
     BINARY = 'binary'  # its wrong ?!
@@ -91,14 +93,26 @@ they imitate random points. In this paper, we study the use of quasi-random sequ
 initial population of a genetic algorithm. Sample points in a quasi-random sequence are designed to 
 have good distribution properties
 """
+
+
 def population_init_quasi_random():
     pass
 
 
+# Selection
+# 1 - Truncation Selection :
+def truncation_selection(population=None,truncation_threshold = 0.0):
+    sorted_pop_arr = sorted(population,key=lambda :)
 
-
-
-
+# 2 - Tournament Selection
+def tournament_selection(population=None, tour_size=2):
+    selected_group = np.random.choice(population, tour_size)
+    best_individual = selected_group[0]
+    for indiv in selected_group:
+        if indiv.fitness > best_individual.fitness:
+            best_individual = indiv
+    # return one parent
+    return best_individual
 
 
 # arr = population_init_random(pop_size=10, chrom_size=5, ctype=ChromosomeType.BINARY)
