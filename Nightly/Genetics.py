@@ -1,5 +1,4 @@
 import numpy as np
-
 # np.random.seed(75)
 
 
@@ -39,7 +38,7 @@ class Chromosome:
                 self.genes = np.array(np.random.rand(length) > 0.5, dtype=int)
             else:
                 # TODO create random chromes by discrete or permutation style
-                self.genes = self.get_shuffled_array(length)
+                self.genes = np.random.permutation(length)
                 # self.genes = self.get_shuffled_array(length)
         elif np.array(genes).shape == (1,):
             # chrom types ??
@@ -98,6 +97,7 @@ have good distribution properties
 def population_init_quasi_random():
     pass
 
+
 # Selection
 # 1 - Truncation Selection :
 def truncation_selection(population=None, truncation_threshold=0.5):
@@ -126,9 +126,6 @@ def tournament_selection(population=None, tour_size=2):
               selection proportional to fitness
 
  @param population: the given population
- @param n: the number of individuals required
- @param fitness: a function that quantifies
-                 the value of an individual
 
  @return a list of individuals of length n
 
@@ -161,6 +158,36 @@ def roulette_selection(population=None):
         i += 1
         sum_prob += sel_prob[i]
     return population[i]
+
+
+def roulette_selection_v2(population=None):
+    pass
+
+
+"""
+ linear_ranking_selection
+
+ @description For ranking selection the individuals are sorted according their fitness values and   
+              the rank N is assigned to the best individual and the rank 1 to the worst individual The selection
+              probability is linearly assigned to the individuals according
+              to their rank.
+
+ @param population: the given population
+
+ @return a list of individuals of length n
+
+ @limitations nothing!
+"""
+
+
+def linear_ranking_selection(population=None):
+    # sort population by Chromosome fitness ascending
+    sorted_pop_arr = sorted(population, key=lambda chrom: chrom.fitness)
+
+
+
+
+
 
 # *************************************************************
 # ***********************test app******************************
