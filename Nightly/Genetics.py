@@ -32,14 +32,14 @@ class Chromosome:
         self.id = id
         self.fitness = fitness
         if genes is None:
+            self.length = length
             if length is None:
                 raise ChromosomeInitError("your chromosome must have length to init")
             if ctype == ChromosomeType.BINARY:
                 self.genes = np.array(np.random.rand(length) > 0.5, dtype=int)
             else:
                 # TODO create random chromes by discrete or permutation style
-
-                pass
+                self.genes = self.get_shuffled_array(length)
                 # self.genes = self.get_shuffled_array(length)
         elif np.array(genes).shape == (1,):
             # chrom types ??
@@ -101,8 +101,12 @@ def population_init_quasi_random():
 
 # Selection
 # 1 - Truncation Selection :
-def truncation_selection(population=None,truncation_threshold = 0.0):
-    sorted_pop_arr = sorted(population,key=lambda :)
+def truncation_selection(population=None, truncation_threshold=0.5):
+    # sort population by Chromosome fitness ascending
+    sorted_pop_arr = sorted(population, key=lambda chrom: chrom.fitness)
+    chrom_length = sorted_pop_arr[0].length
+    return sorted_pop_arr[np.random.randint(0, int(chrom_length * truncation_threshold))]
+
 
 # 2 - Tournament Selection
 def tournament_selection(population=None, tour_size=2):
@@ -115,15 +119,72 @@ def tournament_selection(population=None, tour_size=2):
     return best_individual
 
 
-# arr = population_init_random(pop_size=10, chrom_size=5, ctype=ChromosomeType.BINARY)
-# for c in arr:
-#     print(c.genes)
+# 3 - Stochastic Universal Sampling
+"""
+ stochastic_universal_sampling
 
-# # Provide some example if you want!
-# def chromosome_test():
-#     c = Chromosome(genes=np.array([1, 2, 3]), id=1, fitness=125.2)
-#     c.describe()
-#
-#     c2 = Chromosome(genes=np.array([[1, 2], [2, 1]]).flatten(), id=2,
-#                     fitness=140, flatten=True)
-#     c2.describe()
+ @description select n members of a population, with probability of
+              selection proportional to fitness
+
+ @param population: the given population
+ @param n: the number of individuals required
+ @param fitness: a function that quantifies
+                 the value of an individual
+
+ @return a list of individuals of length n
+
+ @limitations nothing!
+"""
+
+
+def stochastic_universal_sampling(population=None):
+    total_fitness = sum([chrom.fitness for chrom in population])
+    choice_point = np.random.random() * total_fitness
+    accumulated_fitness = 0
+    selected_individual = None
+    # select individual by greatness of it's fitness just like roulette selection
+    for individual in population:
+        accumulated_fitness += individual.fitness
+        while choice_point < accumulated_fitness:
+            selected_individual = individual
+            choice_point += total_fitness
+    return selected_individual
+
+
+# *************************************************************
+# ***********************test app******************************
+# **************************************************************
+def calculate_individual_fitness(individual: Chromosome):
+    chromosome = individual.genes
+    clashes = 0;
+    for i in range(len(chromosome)):
+        for j in range(len(chromosome)):
+            if i != j:
+                dx = abs(i - j)
+                dy = abs(chromosome[i] - chromosome[j])
+                if dx == dy:
+                    clashes += 1
+    return (28 - clashes) * 100 / 28
+
+
+def calculate_population_fitness(population=None, best_fitness=float('-inf'), best_individual=None):
+    for individual in population:
+        individual.fitness = calculate_individual_fitness(individual)
+        if individual.fitness > best_fitness:
+            best_fitness = individual.fitness
+            best_individual = individual
+    return best_fitness, best_individual
+
+
+def test_selections():
+    current_population = population_init_random(100, 8, ctype=ChromosomeType.SIMPLE_MATRIX)
+    # print(np.array([c.genes for c in current_population]))
+    best_fitness, best_individual = calculate_population_fitness(current_population, -1)
+    print("best :> ", best_individual.genes, " f :> ", best_fitness)
+    for i in range(int(len(current_population) / 5)):
+        # Selection
+        parent1 = stochastic_universal_sampling(current_population)
+        print("gen "+str(i)+". ", parent1.genes, " f :> ", parent1.fitness)
+
+
+test_selections()
