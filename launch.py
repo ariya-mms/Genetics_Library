@@ -1,3 +1,3 @@
-from genetics.chro import *
+from genetics import *
 
 population = 
