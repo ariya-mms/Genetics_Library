@@ -1,3 +1,3 @@
-from genetics import *
+from Nightly import Genetics
 
-population = 
+Genetics.ChromosomeType
