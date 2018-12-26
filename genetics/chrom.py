@@ -3,10 +3,11 @@ import numpy as np
 
 class chromosome():
 
-    def __init__(self, genes, id=None, fitness=-1, flatten=False):
+    def __init__(self, genes, id=None, fitness=-1):
         self.id = id
         self.genes = genes
         self.fitness = fitness
+        self.length = len(genes)
 
         # if you need more parameters for specific problem, extend this class
     def flatten_feaures():
