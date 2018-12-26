@@ -7,24 +7,24 @@ import numpy as np
 def pseudo_rand(type, pop_size, chrom_length, low=None, high=None):
     if type is 'permutational':
         chromosomes = list()
-        for _ in range(pop_size):
+        for i in range(pop_size):
             chromosomes.append(chrom.chromosome(
-                np.random.shuffle(np.arange(chrom_length))))
+                np.random.shuffle(np.arange(chrom_length)), id=i))
     elif type is 'binary':
         chromosomes = list()
-        for _ in range(pop_size):
+        for i in range(pop_size):
             chromosomes.append(chrom.chromosome(
-                np.random.choice((0, 1), chrom_length)))
+                np.random.choice((0, 1), chrom_length), id=i))
     elif type is 'discrete':
         chromosomes = list()
-        for _ in range(pop_size):
+        for i in range(pop_size):
             chromosomes.append(chrom.chromosome(
-                np.random.randint(low, high, chrom_length)))
+                np.random.randint(low, high, chrom_length), id=i))
     elif type is 'float':
         chromosomes = list()
-        for _ in range(pop_size):
+        for i in range(pop_size):
             chromosomes.append(chrom.chromosome(
-                np.random.uniform(low, high, chrom_length)))
+                np.random.uniform(low, high, chrom_length), id=i))
     else:
         raise TypeError("Enter a valid type!")
 

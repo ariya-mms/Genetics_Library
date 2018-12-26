@@ -45,9 +45,9 @@ generation = 1
 while best_fitness != 100.0:
         # for generation in range(1, generation_size):
         # Create New Population
-    new_population = np.array([], dtype=Chromosome)
+    new_population = np.array([], dtype=chrom.chromosome)
     # Choose parents to crossover
-    for _ in range(int(pop_size / 2)):
+    for _ in range(int(POPULATION_SIZE / 2)):
             # Selection
         parent1 = tournament_selection(population)
         parent2 = tournament_selection(population)
