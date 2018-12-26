@@ -13,6 +13,17 @@ import random
 
 
 def truncation(population, truncation_threshold=0.5):
+    """[summary]
+    
+    Arguments:
+        population {[type]} -- [description]
+    
+    Keyword Arguments:
+        truncation_threshold {float} -- [description] (default: {0.5})
+    
+    Returns:
+        [type] -- [description]
+    """
     # sort population by Chromosome fitness ascending
     sorted_pop_arr = sorted(
         population, key=lambda chromosome: chromosome.fitness)
@@ -22,6 +33,15 @@ def truncation(population, truncation_threshold=0.5):
 
 
 def tournament(population=None, tour_size=2):
+    """[summary]
+    
+    Keyword Arguments:
+        population {[type]} -- [description] (default: {None})
+        tour_size {int} -- [description] (default: {2})
+    
+    Returns:
+        [type] -- [description]
+    """
     selected_group = np.random.choice(population, tour_size)
     best_individual = selected_group[0]
     for indiv in selected_group:
@@ -55,6 +75,14 @@ def stoch_uni_sampling(population):
 
 
 def roulette(population):
+    """[summary]
+    
+    Arguments:
+        population {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    """
     i = 0
     fitness_arr = np.array(
         list(map(lambda chromosome: chromosome.fitness, population)))
@@ -71,17 +99,17 @@ def roulette(population):
 def roulette_with_stoch(population):
     """Input: a list of N fitness values (list or tuple).
 
-    Output: selected index
+    Output: selected chromosome
     """
     # calculate max fitness value
     maxfit = max(population, lambda chromosome: chromosome.fitness)
     # select: O(1)
     while True:
         # randomly select an individual with uniform probability
-        ind = random.choice(population)
+        chrom = random.choice(population)
         # with probability wi/wmax to accept the selection
-        if population[ind] / maxfit >= random.random():
-            return ind
+        if population[chrom] / maxfit >= random.random():
+            return chrom
 
 
 # TODO this function may can be enhanced through
@@ -117,10 +145,10 @@ def linear_rank(population):
 
 def exponential_rank(population):
     """[summary]
-    
+
     Arguments:
         population {[type]} -- [description]
-    
+
     Returns:
         [type] -- [description]
     """
@@ -129,7 +157,7 @@ def exponential_rank(population):
 
     sum_of_ranks = 0
     for i in range(len(population)):
-        sum_of_ranks += (i+1) ** 2  #TODO what to do with 2?
+        sum_of_ranks += (i+1) ** 2  # TODO what to do with 2?
     sel_prob = sorted_pop / sum_of_ranks
 
     i = 0

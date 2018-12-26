@@ -1,3 +1,9 @@
+"""[summary]
+
+Raises:
+    TypeError -- [description]
+"""
+
 from . import chrom
 import numpy as np
 
@@ -5,6 +11,20 @@ import numpy as np
 
 
 def pseudo_rand(type, pop_size, chrom_length, low=None, high=None):
+    """[summary]
+    
+    Arguments:
+        type {[type]} -- [description]
+        pop_size {[type]} -- [description]
+        chrom_length {[type]} -- [description]
+    
+    Keyword Arguments:
+        low {[type]} -- [description] (default: {None})
+        high {[type]} -- [description] (default: {None})
+    
+    Raises:
+        TypeError -- [description]
+    """
     if type is 'permutational':
         chromosomes = list()
         for i in range(pop_size):
@@ -30,8 +50,24 @@ def pseudo_rand(type, pop_size, chrom_length, low=None, high=None):
 
 
 def quasi_rand(type, pop_size, chrom_length):
+    """[summary]
+    
+    Arguments:
+        type {[type]} -- [description]
+        pop_size {[type]} -- [description]
+        chrom_length {[type]} -- [description]
+    """
+
     pass
 
 
 def centro_vor_tessel(type, pop_size, charm_length):
+    """[summary]
+    
+    Arguments:
+        type {[type]} -- [description]
+        pop_size {[type]} -- [description]
+        charm_length {[type]} -- [description]
+    """
+
     pass

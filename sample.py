@@ -4,7 +4,7 @@ Returns:
     None -- [description]
 """
 
-from genetics import chrom, initpop, genes
+from genetics import chrom, initpop
 import numpy as np
 
 POPULATION_SIZE = 10
@@ -16,6 +16,15 @@ Pm = 0.1
 
 
 def calculate_individual_fitness(individual):
+    """[summary]
+    
+    Arguments:
+        individual {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    """
+
     chromosome = individual.genes
     clashes = 0
     for i in range(len(chromosome)):
@@ -29,6 +38,17 @@ def calculate_individual_fitness(individual):
 
 
 def calculate_population_fitness(population=None, best_fitness=float('-inf'), best_individual=None):
+    """[summary]
+    
+    Keyword Arguments:
+        population {[type]} -- [description] (default: {None})
+        best_fitness {[type]} -- [description] (default: {float('-inf')})
+        best_individual {[type]} -- [description] (default: {None})
+    
+    Returns:
+        [type] -- [description]
+    """
+
     for individual in population:
         individual.fitness = calculate_individual_fitness(individual)
         if individual.fitness > best_fitness:

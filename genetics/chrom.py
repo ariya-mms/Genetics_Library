@@ -1,9 +1,18 @@
-import numpy as np
-
+"""[summary]"""
 
 class chromosome():
+    """[summary]"""
 
     def __init__(self, genes, id=None, fitness=-1):
+        """[summary]
+
+        Arguments:
+            genes {[type]} -- [description]
+   
+        Keyword Arguments:
+            id {[type]} -- [description] (default: {None})
+            fitness {int} -- [description] (default: {-1})
+        """
         self.id = id
         self.genes = genes
         self.fitness = fitness
@@ -11,10 +20,13 @@ class chromosome():
 
         # if you need more parameters for specific problem, extend this class
     def flatten_feaures():
+        """[summary]"""
+
         # in this function you should implement your logic to flatten features
         pass
 
     def describe(self):
+        """[summary]"""
         print('ID=#{}, fitenss={}, \ngenes=\n{}'.format(
             self.id, self.fitness, self.genes))
 
