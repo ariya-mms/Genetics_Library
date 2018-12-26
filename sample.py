@@ -1,4 +1,5 @@
-"""An example to demonstrate usage of Genetics library by solving N-Queen problem
+"""An example to demonstrate usage of Genetics library
+by solving N-Queen problem
 
 Returns:
     None -- [description]
@@ -17,10 +18,10 @@ Pm = 0.1
 
 def calculate_individual_fitness(individual):
     """[summary]
-    
+
     Arguments:
         individual {[type]} -- [description]
-    
+
     Returns:
         [type] -- [description]
     """
@@ -37,14 +38,15 @@ def calculate_individual_fitness(individual):
     return (28 - clashes)*100/28
 
 
-def calculate_population_fitness(population=None, best_fitness=float('-inf'), best_individual=None):
+def calculate_population_fitness(
+        population=None, best_fitness=float('-inf'), best_individual=None):
     """[summary]
-    
+
     Keyword Arguments:
         population {[type]} -- [description] (default: {None})
         best_fitness {[type]} -- [description] (default: {float('-inf')})
         best_individual {[type]} -- [description] (default: {None})
-    
+
     Returns:
         [type] -- [description]
     """
@@ -80,7 +82,8 @@ while best_fitness != 100.0:
     # Elitism (2 => pop_size-2)
     # np.random.shuffle(new_population)   # TODO WTF?
     new_population = np.concatenate(
-        (elites_of_current_population(population), new_population[:pop_size - elitism_count]))
+        (elites_of_current_population(
+            population), new_population[:pop_size - elitism_count]))
     # Evaluate Fitness and best Fitness for new Population
     best_fitness, best_individual = calculate_population_fitness(
         new_population, best_fitness)

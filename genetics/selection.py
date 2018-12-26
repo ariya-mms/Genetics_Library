@@ -95,7 +95,7 @@ def roulette(population):
         sum_prob += sel_prob[i]
     return population[i]
 
-
+# TODO does it work?
 def roulette_with_stoch(population):
     """Input: a list of N fitness values (list or tuple).
 
@@ -112,6 +112,7 @@ def roulette_with_stoch(population):
             return chrom
 
 
+# TODO Nedds some editions to work properly
 # TODO this function may can be enhanced through
 # functional programming in Python
 def linear_rank(population):
@@ -142,7 +143,9 @@ def linear_rank(population):
         sum_prob += sel_prob[i]
     return population[i]
 
-
+# TODO Nedds some editions to work properly
+# TODO this function may can be enhanced through
+# functional programming in Python
 def exponential_rank(population):
     """[summary]
 
@@ -167,3 +170,11 @@ def exponential_rank(population):
         i += 1
         sum_prob += sel_prob[i]
     return population[i]
+
+# TODO just do it!
+def self_adapt_tournament(population):
+    """[summary]
+    
+    Arguments:
+        population {[type]} -- [description]
+    """
