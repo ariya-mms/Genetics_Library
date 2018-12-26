@@ -1,5 +1,9 @@
-# A test script to figure out how to use and deal with library
-#  to solva a problem like N-Queen
+"""An example to demonstrate usage of Genetics library by solving N-Queen problem
+
+Returns:
+    None -- [description]
+"""
+
 from genetics import chrom, initpop, genes
 import numpy as np
 
