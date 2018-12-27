@@ -17,7 +17,7 @@ def truncation(population, truncation_threshold=0.5):
 
 
 # TODO modified - Does it work properly?
-def tournament(population=None, tour_size=2):
+def tournament(population, tour_size=2):
     selected_group = np.random.choice(population, tour_size)
     return max(selected_group, key=lambda chromosome: chromosome.fitness)
 
@@ -67,7 +67,7 @@ def roulette_with_stoch(population):
 
 
 # TODO confirm its functionality    (Done)
-# TODO Nedds some editions to work properly
+# TODO Nedds some editions to work properly (Done)
 # TODO this function may can be enhanced through
 # functional programming in Python
 def linear_rank(population):
@@ -89,7 +89,7 @@ def linear_rank(population):
 
 
 # TODO confirm its functionality
-# TODO Nedds some editions to work properly
+# FIXME
 # TODO this function may can be enhanced through
 # functional programming in Python
 def exponential_rank(population):
@@ -111,6 +111,6 @@ def exponential_rank(population):
 
 
 # TODO confirm its functionality
-# TODO just do it!
+# FIXME
 def self_adapt_tournament(population):
     pass
