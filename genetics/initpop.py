@@ -1,73 +1,40 @@
-"""[summary]
-
-Raises:
-    TypeError -- [description]
-"""
-
 from . import chrom
 import numpy as np
 
 # TODO Study articles related to Quasi-Random & Centroid bla bla
+# TODO Add an argument to whether give ID to chromes or not
 
 
 def pseudo_rand(type, pop_size, chrom_length, low=None, high=None):
-    """[summary]
+    chromosomes = list()
     
-    Arguments:
-        type {[type]} -- [description]
-        pop_size {[type]} -- [description]
-        chrom_length {[type]} -- [description]
-    
-    Keyword Arguments:
-        low {[type]} -- [description] (default: {None})
-        high {[type]} -- [description] (default: {None})
-    
-    Raises:
-        TypeError -- [description]
-    """
     if type is 'permutational':
-        chromosomes = list()
+        gene = np.arange(chrom_length)
         for i in range(pop_size):
-            chromosomes.append(chrom.chromosome(
-                np.random.shuffle(np.arange(chrom_length)), id=i))
+            np.random.shuffle(gene)
+            chromosomes.append(chrom.Chromosome(
+                gene, id=i))
     elif type is 'binary':
-        chromosomes = list()
         for i in range(pop_size):
-            chromosomes.append(chrom.chromosome(
+            chromosomes.append(chrom.Chromosome(
                 np.random.choice((0, 1), chrom_length), id=i))
     elif type is 'discrete':
-        chromosomes = list()
         for i in range(pop_size):
-            chromosomes.append(chrom.chromosome(
-                np.random.randint(low, high, chrom_length), id=i))
+            chromosomes.append(chrom.Chromosome(
+                np.random.randint(low, high+1, chrom_length), id=i))
     elif type is 'float':
-        chromosomes = list()
         for i in range(pop_size):
-            chromosomes.append(chrom.chromosome(
+            chromosomes.append(chrom.Chromosome(
                 np.random.uniform(low, high, chrom_length), id=i))
     else:
         raise TypeError("Enter a valid type!")
 
+    return chromosomes
+
 
 def quasi_rand(type, pop_size, chrom_length):
-    """[summary]
-    
-    Arguments:
-        type {[type]} -- [description]
-        pop_size {[type]} -- [description]
-        chrom_length {[type]} -- [description]
-    """
-
     pass
 
 
 def centro_vor_tessel(type, pop_size, charm_length):
-    """[summary]
-    
-    Arguments:
-        type {[type]} -- [description]
-        pop_size {[type]} -- [description]
-        charm_length {[type]} -- [description]
-    """
-
     pass
