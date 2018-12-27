@@ -59,6 +59,8 @@ def uniform(parent1, parent2):
             child1.genes[i] = parent2.genes[i]
             child2.genes[i] = parent1.genes[i]
 
+    return child1, child2
+
 
 def flat(parent1, parent2):
 
@@ -67,8 +69,10 @@ def flat(parent1, parent2):
 
     for i in range(len(parent1)):
         rand = random.random()
-        child1[i] = (rand*parent1[i]) + ((1-rand)*parent2[i])
-        child2[i] = (rand*parent2[i]) + ((1-rand)*parent1[i])
+        child1.genes[i] = (rand*parent1.genes[i]) + ((1-rand)*parent2.genes[i])
+        child2.genes[i] = (rand*parent2[i]) + ((1-rand)*parent1[i])
+
+    return child1, child2
 
 
 def order(parent1, parent2):
@@ -82,11 +86,24 @@ def order(parent1, parent2):
     while i is j:
         i, j = sorted(random.random(length), random.random(length))
 
-    child1[i:j] = parent1[i:j]
-    child1[i:j] = parent2[i:j]
+    child1.genes[i:j] = parent1.genes[i:j]
+    child2.genes[i:j] = parent2.genes[i:j]
 
-    for k in range(i, j):
-        pass
+    list1 = list()
+    list2 = list()
+
+    for k in range(len(parent1)):
+        if parent2.genes[k] not in child1.genes[i:j]:
+            list1.append(parent2.genes[k])
+        if parent1.genes[k] not in child2.genes[i:j]:
+            list2.append(parent1.genes[k])
+
+    child1.genes[:i] = list1[:i]
+    child1.genes[j:] = list1[i:]
+    child2.genes[:i] = list2[:i]
+    child2.genes[j:] = list2[i:]
+
+    return child1, child2
 
 
 # TODO Understand it
@@ -94,13 +111,15 @@ def order(parent1, parent2):
 def pmx(parent1, parent2):
 
     random_num = random.randint()
-    child1 = deepcopy(parent1)
-    child2 = deepcopy(parent2)
+    # TODO I removed deepcopy. does it work?
+    child1 = parent1[:]
+    child2 = parent2[:]
 
     size = len(parent1.genes)
     # create CO points
     point1 = random_num(size)
     point2 = random_num(size-1)
+
     if point2 >= point1:
         point2 += 1
     else:
@@ -127,3 +146,57 @@ def pmx(parent1, parent2):
 
     # return two individuals
     return child1, child2
+
+
+# FIXME
+# TODO NEEDS TO BE VALIDATED
+def edge_recomb(parent1, parent2, arr, ind):  # edge recombination operator
+    neigh_list = {}  # adjacency list
+    length = len(parent1.permutation)  # expected length of a child
+    for i, base in enumerate(parent1.permutation):  # create nodes
+        neigh_list[base] = {parent1.permutation[i - 1],
+                            parent1.permutation[(i + 1) % length]}
+    for i, base in enumerate(parent2.permutation):  # add neighbours to each node
+        neigh_list[base].add(parent2.permutation[i - 1])
+        neigh_list[base].add(parent2.permutation[(i + 1) % length])
+
+    # a starting point of a child is a starting point of one of the parents
+    neigh_chosen = [parent1.permutation[0], parent2.permutation[0]][random.randint(0, 1)]
+    child = [neigh_chosen]
+
+    while len(child) < length:  # run until child has desired length
+        min_length = 5  # each list has lower length than 5
+        min_neigh_list = []
+        for k in neigh_list:  # for every node
+            # remove a chosen fragment from the node
+            if neigh_chosen in neigh_list[k]:
+                neigh_list[k].remove(neigh_chosen)
+        # if a node is a neighbour of previously chosen
+        min_neigh_list = neigh_list[neight_chosen]
+        del neigh_list[neigh_chosen]
+        # for k in neigh_list[neigh_chosen]:
+        #     # remember nodes with the fewest neighbours
+        #     if len(neigh_list[k]) < min_length:
+        #         min_length = len(neigh_list[k])
+        #         min_neigh_list = [k]
+        #     elif len(neigh_list[k]) == min_length:
+        #         min_neigh_list.append(k)
+        # del neigh_list[neigh_chosen]  # delete list of the chosen node
+        if len(min_neigh_list) > 0:  # if the chosen node has any neighbours
+            # get the best match out of neighbours as next
+            max_overlap = overlap(neigh_chosen, max(
+                min_neigh_list, key=lambda x: overlap(neigh_chosen, x)))
+            possibilities = list(filter(lambda x: overlap(
+                neigh_chosen, x) == max_overlap, min_neigh_list))
+            neigh_chosen = possibilities[random.randint(
+                0, len(possibilities) - 1)]
+        else:
+            # get the best match out of every node as next
+            max_overlap = overlap(neigh_chosen, max(
+                neigh_list, key=lambda x: overlap(neigh_chosen, x)))
+            possibilities = list(filter(lambda x: overlap(
+                neigh_chosen, x) == max_overlap, neigh_list))
+            neigh_chosen = possibilities[random.randint(
+                0, len(possibilities) - 1)]
+        child.append(neigh_chosen)  # add the node to the solution
+    arr[ind] = Gene(child)
