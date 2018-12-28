@@ -1,6 +1,5 @@
 from . import chrom
 import numpy as np
-from copy import deepcopy
 import random
 
 # TODO add ability to check chrome type and raise exception
@@ -10,7 +9,7 @@ import random
 # TODO Check its functionality
 def singlepoint(parent1, parent2):
 
-    point = random.randint
+    point = random.randint(0, len(parent1))
 
     child1 = chrom.Chromosome(parent1.genes)
     child2 = chrom.Chromosome(parent2.genes)
@@ -29,7 +28,7 @@ def multipoint(parent1, parent2, points=3):
     chrom_length = parent1.length
     points = set()
     for _ in range(chrom_length):
-        points.add(random.randint(chrom_length))
+        points.add(random.randint(0, chrom_length))
 
     child1 = chrom.Chromosome(parent1.genes)
     child2 = chrom.Chromosome(parent2.genes)
@@ -67,7 +66,8 @@ def flat(parent1, parent2):
     child1 = chrom.Chromosome(np.zeros)
     child2 = chrom.Chromosome(np.zeros)
 
-    for i in range(len(parent1)):
+    # for i in range(len(parent1)):
+    for i, _ in enumerate(parent1):
         rand = random.random()
         child1.genes[i] = (rand*parent1.genes[i]) + ((1-rand)*parent2.genes[i])
         child2.genes[i] = (rand*parent2[i]) + ((1-rand)*parent1[i])
@@ -81,10 +81,12 @@ def order(parent1, parent2):
     child1 = chrom.Chromosome(np.zeros(length))
     child2 = chrom.Chromosome(np.zeros(length))
 
-    i = 0
-    j = 0
-    while i is j:
-        i, j = sorted(random.random(length), random.random(length))
+    # i = 0
+    # j = 0
+    # while i is j:
+    #     i, j = sorted(random.random(length), random.random(length))
+    # TODO does it work?
+    i, j = sorted(random.choices(len(parent1), k=2))
 
     child1.genes[i:j] = parent1.genes[i:j]
     child2.genes[i:j] = parent2.genes[i:j]
@@ -110,7 +112,7 @@ def order(parent1, parent2):
 # TODO can it be enhanced?
 def pmx(parent1, parent2):
 
-    random_num = random.randint()
+    random_num = random.randint(0, len(parent1))
     # TODO I removed deepcopy. does it work?
     child1 = parent1[:]
     child2 = parent2[:]
@@ -161,7 +163,8 @@ def edge_recomb(parent1, parent2, arr, ind):  # edge recombination operator
         neigh_list[base].add(parent2.permutation[(i + 1) % length])
 
     # a starting point of a child is a starting point of one of the parents
-    neigh_chosen = [parent1.permutation[0], parent2.permutation[0]][random.randint(0, 1)]
+    neigh_chosen = [parent1.permutation[0],
+                    parent2.permutation[0]][random.randint(0, 1)]
     child = [neigh_chosen]
 
     while len(child) < length:  # run until child has desired length
