@@ -1,11 +1,10 @@
-# from . import chrom
 import numpy as np
 import random
 
 # TODO add an argument to selection operators to specify
 # how many chroms to return
-
-
+import sys
+print(sys.path)
 # TODO can it be enhanced?
 def truncation(population, truncation_threshold=0.5):
     # sort population by Chromosome fitness ascending

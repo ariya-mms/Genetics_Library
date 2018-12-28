@@ -1,4 +1,5 @@
-from genetics import chrom, initpop, selection, chross, mutation
+from genetics import chrom
+from genetics.simplegene import initpop, selection, chross, mutation
 import numpy as np
 import random
 

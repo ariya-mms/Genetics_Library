@@ -1,5 +1,5 @@
+from .. import chrom
 import random
-from . import chrom
 
 # TODO add ability to check chrome type and raise exception
 # in functions or a seperate function

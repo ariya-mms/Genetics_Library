@@ -1,4 +1,4 @@
-from . import chrom
+from .. import chrom
 import numpy as np
 import random
 

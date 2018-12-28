@@ -1,4 +1,4 @@
-from . import chrom
+from .. import chrom
 import numpy as np
 
 # TODO Study articles related to Quasi-Random & Centroid bla bla
