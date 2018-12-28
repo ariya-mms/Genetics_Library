@@ -20,7 +20,7 @@ from . import chrom
 
 
 def uniform(c, ctype, high, low, num=1):
-    chromosome = chrom.Chromosome(c.genes)
+    chromosome = chrom.Simple_Gene(c.genes)
     for _ in range(num):
         if ctype == 'discrete':
             chromosome.genes[random.randint(
@@ -34,19 +34,18 @@ def uniform(c, ctype, high, low, num=1):
 
 
 def inorder(parameter_list):
-    chromosome = chrom.Chromosome(c.genes)
     pass
 
 
 def twors(c):
-    chromosome = chrom.Chromosome(c.genes)
+    chromosome = chrom.Simple_Gene(c.genes)
     i, j = random.choices(len(chromosome), k=2)
     chromosome.genes[i], chromosome.genes[j] = chromosome.genes[j], chromosome.genes[i]
     return chromosome
 
 
 def reverse_seq(c):
-    chromosome = chrom.Chromosome(c.genes)
+    chromosome = chrom.Simple_Gene(c.genes)
     i, j = sorted(random.choices(len(chromosome), k=2))
     while i < j:
         chromosome.genes[i], chromosome.genes[j] = chromosome.genes[j], chromosome.genes[i]
@@ -56,7 +55,7 @@ def reverse_seq(c):
 
 
 def part_shuffle(c, pm=0.1):
-    chromosome = chrom.Chromosome(c.genes)
+    chromosome = chrom.Simple_Gene(c.genes)
     for i, _ in enumerate(chromosome):
         if pm > random.random():
             j = random.randint(0, len(chromosome))
@@ -65,14 +64,14 @@ def part_shuffle(c, pm=0.1):
 
 
 def scramble(c):
-    chromosome = chrom.Chromosome(c.genes)
+    chromosome = chrom.Simple_Gene(c.genes)
     i, j = sorted(random.choices(len(chromosome), k=2))
     random.shuffle(chromosome.genes[i:j])
     return chromosome
 
 
 def distance_based(c, i, d):
-    chromosome = chrom.Chromosome(c.genes)
+    chromosome = chrom.Simple_Gene(c.genes)
     if (d > i) or ((i + d) > len(c)):
         raise IndexError("Enter proper 'gene index' & 'distance' arguments")
     j = random.randint(i-d, i+d)

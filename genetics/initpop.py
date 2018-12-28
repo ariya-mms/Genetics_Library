@@ -13,19 +13,19 @@ def pseudo_rand(ctype, pop_size, chrom_length, low=None, high=None):
         gene = np.arange(chrom_length)
         for i in range(pop_size):
             np.random.shuffle(gene)
-            chromosomes.append(chrom.Chromosome(
+            chromosomes.append(chrom.Simple_Gene(
                 gene, chrm_id=i))
     elif ctype == 'binary':
         for i in range(pop_size):
-            chromosomes.append(chrom.Chromosome(
+            chromosomes.append(chrom.Simple_Gene(
                 np.random.choice((0, 1), chrom_length), chrm_id=i))
     elif ctype == 'discrete':
         for i in range(pop_size):
-            chromosomes.append(chrom.Chromosome(
+            chromosomes.append(chrom.Simple_Gene(
                 np.random.randint(low, high+1, chrom_length), chrm_id=i))
     elif ctype == 'float':
         for i in range(pop_size):
-            chromosomes.append(chrom.Chromosome(
+            chromosomes.append(chrom.Simple_Gene(
                 np.random.uniform(low, high, chrom_length), chrm_id=i))
     else:
         raise TypeError("Enter a valid chromosome type!")

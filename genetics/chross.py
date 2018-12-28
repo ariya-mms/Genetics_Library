@@ -11,8 +11,8 @@ def singlepoint(parent1, parent2):
 
     point = random.randint(0, len(parent1))
 
-    child1 = chrom.Chromosome(parent1.genes)
-    child2 = chrom.Chromosome(parent2.genes)
+    child1 = chrom.Simple_Gene(parent1.genes)
+    child2 = chrom.Simple_Gene(parent2.genes)
 
     # TODO check the loop
     for i in range(point):
@@ -30,8 +30,8 @@ def multipoint(parent1, parent2, points=3):
     for _ in range(chrom_length):
         points.add(random.randint(0, chrom_length))
 
-    child1 = chrom.Chromosome(parent1.genes)
-    child2 = chrom.Chromosome(parent2.genes)
+    child1 = chrom.Simple_Gene(parent1.genes)
+    child2 = chrom.Simple_Gene(parent2.genes)
 
     points = sorted(list(points))
     flag = True
@@ -50,8 +50,8 @@ def multipoint(parent1, parent2, points=3):
 # TODO check its functionality
 def uniform(parent1, parent2):
 
-    child1 = chrom.Chromosome(parent1.genes)
-    child2 = chrom.Chromosome(parent2.genes)
+    child1 = chrom.Simple_Gene(parent1.genes)
+    child2 = chrom.Simple_Gene(parent2.genes)
 
     for i in range(parent1.length):
         if random.random() > 0.5:
@@ -63,8 +63,8 @@ def uniform(parent1, parent2):
 
 def flat(parent1, parent2):
 
-    child1 = chrom.Chromosome(np.zeros)
-    child2 = chrom.Chromosome(np.zeros)
+    child1 = chrom.Simple_Gene(np.zeros)
+    child2 = chrom.Simple_Gene(np.zeros)
 
     # for i in range(len(parent1)):
     for i, _ in enumerate(parent1):
@@ -78,8 +78,8 @@ def flat(parent1, parent2):
 def order(parent1, parent2):
 
     length = len(parent1)
-    child1 = chrom.Chromosome(np.zeros(length))
-    child2 = chrom.Chromosome(np.zeros(length))
+    child1 = chrom.Simple_Gene(np.zeros(length))
+    child2 = chrom.Simple_Gene(np.zeros(length))
 
     # i = 0
     # j = 0
@@ -142,9 +142,6 @@ def pmx(parent1, parent2):
         # Position bookkeeping
         p1[temp1], p1[temp2] = p1[temp2], p1[temp1]
         p2[temp1], p2[temp2] = p2[temp2], p2[temp1]
-
-    child1.reset_attrs()
-    child2.reset_attrs()
 
     # return two individuals
     return child1, child2

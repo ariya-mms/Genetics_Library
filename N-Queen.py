@@ -8,13 +8,13 @@ TOURNAMENT_SIZE = 3
 ELITISM_COUNT = 2
 Pc = 0.9
 Pm = 0.1
-listt = list(np.ndarray((4,4)))
+
 
 def calc_chrom_fit(chromosome):
     genes = chromosome.genes
     clashes = 0
-    for i in range(len(genes)):
-        for j in range(len(genes)):
+    for i, _ in enumerate(genes):
+        for j, _ in enumerate(genes):
             if i != j:
                 dx = abs(i - j)
                 dy = abs(genes[i] - genes[j])
@@ -60,16 +60,17 @@ while best_fitness != 100.0:
         new_population = np.append(new_population, [child1, child2])
     # Mutation
     for i in range(POPULATION_SIZE):
-        if Pm > random.random:
+        if Pm > random.random():
             new_population[i] = mutation.swap_mutation(new_population[i])
-    # Elitism (2 => pop_size-2)
-    # np.random.shuffle(new_population)   # TODO WTF?
-    new_population = np.concatenate(
-        (elites_of_current_population(current_population), new_population[:POPULATION_SIZE - elitism_count]))
-    # Evaluate Fitness and best Fitness for new Population
-    best_fitness, best_individual = calculate_population_fitness(
-        new_population, best_fitness)
-    # add new generation to generation list
-    current_population = new_population
-    # generations = np.append(generations, current_population)
-    generation += 1
+    # # Elitism (2 => pop_size-2)
+    # # np.random.shuffle(new_population)   # TODO WTF?
+    # new_population = np.concatenate((elites_of_current_population(
+    #     current_population), new_population[:POPULATION_SIZE - elitism_count]))
+    # # Evaluate Fitness and best Fitness for new Population
+    # best_fitness, best_individual = calc_pop_fit(
+    #     new_population, best_fitness)
+    # # add new generation to generation list
+    # current_population = new_population
+    # # generations = np.append(generations, current_population)
+    # generation += 1
+    
