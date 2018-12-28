@@ -1,12 +1,14 @@
 import numpy as np
 
+# TODO add a static method or counter to assign ID more professionally!
+
 
 class Chrom():
-    def __init__(self, genes:np.ndarray, ctype:str, chrm_id=-1, fitness=-1.0):
-        self.id = chrm_id
+    fitness = -1.0
+    def __init__(self, gtype:str, genes:np.array, chrm_id=-1):
+        self.type = gtype
         self.genes = genes
-        self.fitness = fitness
-        self.type = ctype
+        self.id = chrm_id
 
     def __len__(self):
         return len(self.genes)
@@ -26,11 +28,11 @@ class Simple_Gene(Chrom):
 
 
 class Vector_Gene(Chrom):
-    def __init__(self, genes:np.ndarray, ctype:str, glength:int, chrm_id=-1, fitness=-1.0):
-        self.id = chrm_id
+    def __init__(self, gtype:str, genes:np.ndarray, glength:int, chrm_id=-1):
+        self.type = gtype
         self.genes = genes
-        self.fitness = fitness
-        self.type = ctype
+        self.glength = glength
+        self.id = chrm_id
 
     def describe(self):
         print('Vector Gene')
