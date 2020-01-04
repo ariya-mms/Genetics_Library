@@ -8,6 +8,16 @@ import random
 
 # TODO Check its functionality
 def singlepoint(parent1, parent2):
+    """Single Point crossoverf
+    
+    Arguments:
+        parent1 {chorm} -- [description]
+        parent2 {chome} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
 
     point = random.randint(0, len(parent1))
 
@@ -24,6 +34,19 @@ def singlepoint(parent1, parent2):
 
 # TODO Check its functionality
 def multipoint(parent1, parent2, points=3):
+    """Multi-point crossover
+    
+    Arguments:
+        parent1 {chrom} -- [description]
+        parent2 {chrom} -- [description]
+    
+    Keyword Arguments:
+        points {int} -- [description] (default: {3})
+    
+    Returns:
+        chrom -- [description]
+    """
+
 
     chrom_length = parent1.length
     points = set()
@@ -49,6 +72,15 @@ def multipoint(parent1, parent2, points=3):
 
 # TODO check its functionality
 def uniform(parent1, parent2):
+    """Uniform Crossover
+    
+    Arguments:
+        parent1 {chorm} -- [description]
+        parent2 {chrom} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
 
     child1 = chrom.Simple_Gene(parent1.genes)
     child2 = chrom.Simple_Gene(parent2.genes)
@@ -62,6 +94,16 @@ def uniform(parent1, parent2):
 
 
 def flat(parent1, parent2):
+    """Flat Crossover
+    
+    Arguments:
+        parent1 {chrom} -- [description]
+        parent2 {chorm} -- [description]
+    
+    Returns:
+        chorm -- [description]
+    """
+
 
     child1 = chrom.Simple_Gene(np.zeros)
     child2 = chrom.Simple_Gene(np.zeros)
@@ -76,6 +118,15 @@ def flat(parent1, parent2):
 
 
 def order(parent1, parent2):
+    """Order crossover
+    
+    Arguments:
+        parent1 {chorm} -- [description]
+        parent2 {chorm} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
 
     length = len(parent1)
     child1 = chrom.Simple_Gene(np.zeros(length))
@@ -111,6 +162,15 @@ def order(parent1, parent2):
 # TODO Understand it
 # TODO can it be enhanced?
 def pmx(parent1, parent2):
+    """PMX crossover
+    
+    Arguments:
+        parent1 {chrom} -- [description]
+        parent2 {chorm} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
 
     random_num = random.randint(0, len(parent1))
     # TODO I removed deepcopy. does it work?
@@ -150,6 +210,16 @@ def pmx(parent1, parent2):
 # FIXME
 # TODO NEEDS TO BE VALIDATED
 def edge_recomb(parent1, parent2, arr, ind):  # edge recombination operator
+    """Edge Recombination Crossover
+    
+    Arguments:
+        parent1 {chrom} -- [description]
+        parent2 {chorm} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     neigh_list = {}  # adjacency list
     length = len(parent1.permutation)  # expected length of a child
     for i, base in enumerate(parent1.permutation):  # create nodes

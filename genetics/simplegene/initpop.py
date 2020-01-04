@@ -1,3 +1,13 @@
+"""Population initialization module
+
+Raises:
+    ValueError -- [description]
+    TypeError -- [description]
+
+Returns:
+    list(chrom) -- [description]
+"""
+
 from .. import chrom
 import numpy as np
 
@@ -6,6 +16,25 @@ import numpy as np
 
 
 def pseudo_rand(gtype: str, pop_size: int, chrom_length: int, low=None, high=None):
+    """Pseudo Random Initialization
+    
+    Arguments:
+        gtype {str} -- [description]
+        pop_size {int} -- [description]
+        chrom_length {int} -- [description]
+    
+    Keyword Arguments:
+        low {int} -- [description] (default: {None})
+        high {int} -- [description] (default: {None})
+    
+    Raises:
+        ValueError -- For discrete and float high and low shouldn't be None
+        TypeError -- Invalid command
+    
+    Returns:
+        list(chrom) -- [description]
+    """
+
     chromosomes = list()
     if gtype == 'permutational':
         gene = np.arange(chrom_length)

@@ -1,3 +1,14 @@
+"""Mutation module
+
+Raises:
+    exception -- [description]
+    TypeError -- [description]
+    IndexError -- [description]
+
+Returns:
+    chrom -- [description]
+"""
+
 from .. import chrom
 import random
 
@@ -20,6 +31,24 @@ import random
 
 
 def uniform(c, ctype, high, low, num=1):
+    """Uniform mutation
+    
+    Arguments:
+        c {chrom} -- [description]
+        ctype {str} -- [description]
+        high {int} -- [description]
+        low {int} -- [description]
+    
+    Keyword Arguments:
+        num {int} -- [description] (default: {1})
+    
+    Raises:
+        TypeError -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     chromosome = chrom.Simple_Gene(c.genes)
     for _ in range(num):
         if ctype == 'discrete':
@@ -34,10 +63,25 @@ def uniform(c, ctype, high, low, num=1):
 
 
 def inorder(parameter_list):
+    """[summary]
+    
+    Arguments:
+        parameter_list {[type]} -- [description]
+    """
+
     pass
 
 
 def twors(c):
+    """Twors mutation: Swap mutation
+    
+    Arguments:
+        c {chorm} -- [description]
+    
+    Returns:
+        chorm -- [description]
+    """
+
     chromosome = chrom.Simple_Gene(c.genes)
     i, j = random.choices(len(chromosome), k=2)
     chromosome.genes[i], chromosome.genes[j] = chromosome.genes[j], chromosome.genes[i]
@@ -45,6 +89,15 @@ def twors(c):
 
 
 def reverse_seq(c):
+    """Reverse Sequence mutation
+    
+    Arguments:
+        c {chrom} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     chromosome = chrom.Simple_Gene(c.genes)
     i, j = sorted(random.choices(len(chromosome), k=2))
     while i < j:
@@ -55,8 +108,21 @@ def reverse_seq(c):
 
 
 def part_shuffle(c, pm=0.1):
+    """Partial Shuffle Mutation (PSM)
+    
+    Arguments:
+        c {chrom} -- [description]
+    
+    Keyword Arguments:
+        pm {float} -- [description] (default: {0.1})
+    
+    Returns:
+        chrom -- [description]
+    """
+
     chromosome = chrom.Simple_Gene(c.genes)
-    for i, _ in enumerate(chromosome):
+    # for i, _ in enumerate(chromosome):
+    for i in range(len(chromosome))
         if pm > random.random():
             j = random.randint(0, len(chromosome))
             chromosome.genes[i], chromosome.genes[j] = chromosome.genes[j], chromosome.genes[i]
@@ -64,6 +130,15 @@ def part_shuffle(c, pm=0.1):
 
 
 def scramble(c):
+    """Scramble Mutation
+    
+    Arguments:
+        c {chrom} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     chromosome = chrom.Simple_Gene(c.genes)
     i, j = sorted(random.choices(len(chromosome), k=2))
     random.shuffle(chromosome.genes[i:j])
@@ -71,6 +146,20 @@ def scramble(c):
 
 
 def distance_based(c, i, d):
+    """Distance Based mutation
+    
+    Arguments:
+        c {chrom} -- [description]
+        i {int} -- [description]
+        d {int} -- [description]
+    
+    Raises:
+        IndexError -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     chromosome = chrom.Simple_Gene(c.genes)
     if (d > i) or ((i + d) > len(c)):
         raise IndexError("Enter proper 'gene index' & 'distance' arguments")

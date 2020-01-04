@@ -1,9 +1,21 @@
+"""Module to define chromsome classes
+
+Returns:
+    chrom -- [description]
+"""     
+
 import numpy as np
 
 # TODO add a static method or counter to assign ID more professionally!
 
 
 class Chrom():
+    """General chromosome class to inherit from
+    
+    Returns:
+        [type] -- [description]
+    """
+
     fitness = -1.0
     def __init__(self, gtype:str, genes:np.array, chrm_id=-1):
         self.type = gtype
@@ -22,12 +34,24 @@ class Chrom():
 
 
 class Simple_Gene(Chrom):
+    """Chromosome class with single data in each gene
+    
+    Arguments:
+        Chrom {chrom} -- [description]
+    """
+
     def describe(self):
         print('Simple Gene')
         super().describe()
 
 
 class Vector_Gene(Chrom):
+    """Chromosome class with vector data in each gene
+    
+    Arguments:
+        Chrom {chrom} -- [description]
+    """
+
     def __init__(self, gtype:str, genes:np.ndarray, glength:int, chrm_id=-1):
         self.type = gtype
         self.genes = genes

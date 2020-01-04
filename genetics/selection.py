@@ -1,15 +1,32 @@
+"""Selection module
+
+Returns:
+    chrome(s) -- [description]
+"""
+
 import numpy as np
 import random
 
 # TODO add an argument to selection operators to specify
 # how many chroms to return
-import sys
-print(sys.path)
+
 # TODO can it be enhanced?
 def truncation(population, truncation_threshold=0.5):
-    # sort population by Chromosome fitness ascending
+    """Truncation selection
+    
+    Arguments:
+        population {list(chrom)} -- [description]
+    
+    Keyword Arguments:
+        truncation_threshold {float} -- selection range (default: {0.5})
+    
+    Returns:
+        chrom -- [description]
+    """
+
+    # sort population by Chromosome fitness descending
     sorted_pop_arr = sorted(
-        population, key=lambda chromosome: chromosome.fitness)
+        population, key=lambda chromosome: chromosome.fitness, True)
     chrom_length = sorted_pop_arr[0].length
     return sorted_pop_arr[np.random.randint(0, int(
             chrom_length * truncation_threshold))]
@@ -17,12 +34,33 @@ def truncation(population, truncation_threshold=0.5):
 
 # TODO modified - Does it work properly?
 def tournament(population, tour_size=2):
+    """Returns the best candidate in tournament from randomly chosen chromosomes
+    
+    Arguments:
+        population {list(chrom)} -- [description]
+    
+    Keyword Arguments:
+        tour_size {int} -- size of randomly chosen chromosomes (default: {2})
+    
+    Returns:
+        chorm -- [description]
+    """
+
     selected_group = np.random.choice(population, tour_size)
     return max(selected_group, key=lambda chromosome: chromosome.fitness)
 
 
 # TODO it can be enhanced
 def stoch_uni_sampling(population):
+    """Stochastic Universal Sampling
+    
+    Arguments:
+        population {list(chorme)} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     total_fitness = sum([chromosome.fitness for chromosome in population])
     choice_point = np.random.random() * total_fitness
     accumulated_fitness = 0
@@ -39,6 +77,15 @@ def stoch_uni_sampling(population):
 
 # TODO can it be enhanced?
 def roulette(population):
+    """Roulette Wheel Selection
+    
+    Arguments:
+        population {list(chorm)} -- [description]
+    
+    Returns:
+        chorm -- [description]
+    """
+
     i = 0
     fitness_arr = np.array(
         list(map(lambda chromosome: chromosome.fitness, population)))
@@ -54,9 +101,18 @@ def roulette(population):
 
 # TODO confirm its functionality    (Done)
 def roulette_with_stoch(population):
+    """Roulette Wheel Selection with Stochastic Acceptance
+    
+    Arguments:
+        population {list(chrom)} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     # calculate max fitness value
     maxfit = max(population, lambda chromosome: chromosome.fitness)
-    # select: O(1)
+    # select
     while True:
         # randomly select an individual with uniform probability
         chromosome = random.choice(population)
@@ -70,6 +126,15 @@ def roulette_with_stoch(population):
 # TODO this function may can be enhanced through
 # functional programming in Python
 def linear_rank(population):
+    """Linear Ranking Selection
+    
+    Arguments:
+        population {list(chrom)} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     # sort population by Chromosome fitness ascending
     sorted_pop = sorted(population, key=lambda chromosome: chromosome.fitness)
 
@@ -92,6 +157,15 @@ def linear_rank(population):
 # TODO this function may can be enhanced through
 # functional programming in Python
 def exponential_rank(population):
+    """Exponential Ranking Selection
+    
+    Arguments:
+        population {list(chorm)} -- [description]
+    
+    Returns:
+        chrom -- [description]
+    """
+
     # sort population by Chromosome fitness ascending
     sorted_pop = sorted(population, key=lambda chromosome: chromosome.fitness)
 
